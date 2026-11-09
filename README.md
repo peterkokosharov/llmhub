@@ -1,20 +1,41 @@
 # llmhub
 
-Adds free-tier LLM providers (NVIDIA, Gemini) to opencode's config in one command.
+Adds free-tier LLM providers (NVIDIA, Gemini, OpenAI) to opencode's config in one command.
 
-## Start
+## Install
+
+Clone or copy this folder anywhere:
+
+- **Windows:** `%USERPROFILE%\llmhub\`
+- **Linux / Q4OS:** `~/.local/share/llmhub/`
+
+Copy `secret.py` from [ai-first-workspace](https://github.com/peterkokosharov/ai-first-workspace) into the same folder,
+or skip it and use environment variables instead.
+
+## Usage
+
+**First time — store your API keys** (saved in the OS keyring, never in a file):
 
 ```bash
-# store keys once (goes into OS keyring — never into a file)
 python3 secret.py set nvidia/personal/api_key
 python3 secret.py set gemini/personal/api_key
+python3 secret.py set openai/personal/api_key
+```
 
-# write providers into opencode.json
+**Every time you want to update opencode's model list:**
+
+```bash
+# 1. Close opencode desktop (or stop the CLI)
+# 2. Write providers into opencode's config:
 python3 llmhub.py
-
-# open opencode
+# 3. Start opencode
 opencode
 ```
+
+**See the models in opencode:**
+
+- Desktop: open the model listbox in the prompt area
+- CLI: type `/models`
 
 ## What you get
 
