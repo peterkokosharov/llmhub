@@ -4,13 +4,22 @@ Adds free-tier LLM providers (NVIDIA, Gemini, OpenAI) to opencode's config in on
 
 ## Install
 
-Clone or copy this folder anywhere:
+Clone the repo and run the install script:
 
+```bash
+git clone https://github.com/peterkokosharov/llmhub.git
+cd llmhub
+
+# Linux / Q4OS:
+bash install.sh
+
+# Windows:
+install.bat
+```
+
+Files are copied to:
 - **Windows:** `%USERPROFILE%\llmhub\`
 - **Linux / Q4OS:** `~/.local/share/llmhub/`
-
-Copy `secret.py` from [ai-first-workspace](https://github.com/peterkokosharov/ai-first-workspace) into the same folder,
-or skip it and use environment variables instead.
 
 ## Usage
 
@@ -62,7 +71,7 @@ NVIDIA models rotate — verify names at build.nvidia.com before adding.
 
 - `llmhub.py` — writes opencode.json
 - `models.json` — provider and model list
-- `secret.py` — OS keyring helper (copy from ai-first-workspace, or use env vars)
+- `secret.py` — OS keyring helper (uses the OS keyring; env vars also work)
 
 ## License
 
