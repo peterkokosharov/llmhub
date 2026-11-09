@@ -114,6 +114,29 @@ NVIDIA models rotate — verify names at build.nvidia.com before adding.
 
 ---
 
+## Uninstall
+
+```bash
+# Linux / Q4OS:
+bash ~/.local/share/llmhub/uninstall.sh
+
+# Windows (Command Prompt):
+%USERPROFILE%\llmhub\uninstall.bat
+```
+
+Then remove the API keys from your environment:
+
+**Windows** — open Command Prompt and run:
+```bat
+reg delete "HKCU\Environment" /v NVIDIA_API_KEY /f
+reg delete "HKCU\Environment" /v GEMINI_API_KEY /f
+reg delete "HKCU\Environment" /v OPENAI_API_KEY /f
+```
+
+**Linux** — remove the `export` lines you added from `~/.bashrc` (or `~/.profile`).
+
+---
+
 ## Files
 
 - `llmhub.py` — writes opencode's config
