@@ -1,0 +1,44 @@
+{
+  "nvidia": {
+    "provider": "nvidia",
+    "base_url": "https://integrate.api.nvidia.com/v1",
+    "key_env": "NVIDIA_API_KEY",
+    "models": {
+      "nvidia/nemotron-ultra-253b-instruct":   {"name": "Nemotron Ultra",   "class": "OPUS"},
+      "nvidia/nemotron-super-49b-instruct":    {"name": "Nemotron Super",   "class": "SONNET"},
+      "nvidia/llama-3.3-70b-instruct":         {"name": "Llama 3.3 70B",   "class": "SONNET"},
+      "nvidia/llama-3.1-nemotron-70b-instruct":{"name": "Nemotron 70B",    "class": "SONNET"},
+      "nvidia/llama-3.1-70b-instruct":         {"name": "Llama 3.1 70B",   "class": "HAIKU"},
+      "nvidia/mistral-nemo-12b-instruct":      {"name": "Mistral Nemo 12B","class": "HAIKU"},
+      "nvidia/llama-3.2-3b-instruct":          {"name": "Llama 3.2 3B",    "class": "HAIKU"},
+      "nvidia/phi-3-mini-128k-instruct":       {"name": "Phi-3 Mini",      "class": "HAIKU"},
+      "nvidia/deepseek-r1":                    {"name": "DeepSeek R1",     "class": "FABLE"},
+      "nvidia/qwen2.5-72b-instruct":           {"name": "Qwen2.5 72B",     "class": "SONNET"},
+      "nvidia/qwen2.5-coder-32b-instruct":     {"name": "Qwen2.5 Coder",  "class": "SONNET"},
+      "nvidia/mistral-7b-instruct-v0.3":       {"name": "Mistral 7B",      "class": "HAIKU"},
+      "nvidia/gemma-2-27b-it":                 {"name": "Gemma 2 27B",     "class": "HAIKU"},
+      "nvidia/gemma-2-9b-it":                  {"name": "Gemma 2 9B",      "class": "HAIKU"}
+    }
+  },
+  "gemini": {
+    "provider": "gemini",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+    "key_env": "GEMINI_API_KEY",
+    "models": {
+      "gemini-3.5-flash-lite":  {"name": "Gemini 3.5 Flash Lite", "class": "HAIKU"},
+      "gemini-3.8-flash":       {"name": "Gemini 3.8 Flash",      "class": "SONNET"},
+      "gemini-3.1-pro-preview": {"name": "Gemini 3.1 Pro",        "class": "FABLE"}
+    }
+  },
+  "openai": {
+    "provider": "openai",
+    "base_url": "https://api.openai.com/v1",
+    "key_env": "OPENAI_API_KEY",
+    "note": "data-sharing tier: 1M tokens/day large, 10M/day mini — opt in at platform.openai.com/settings/privacy",
+    "models": {
+      "gpt-6-luna":    {"name": "GPT-6 Luna",    "class": "FABLE"},
+      "gpt-5-nano":    {"name": "GPT-5 Nano",    "class": "HAIKU"},
+      "gpt-4o-mini":   {"name": "GPT-4o Mini",   "class": "HAIKU"}
+    }
+  }
+}
