@@ -2,9 +2,65 @@
 
 Adds free-tier LLM providers (NVIDIA, Gemini, OpenAI) to opencode's config in one command.
 
-## Install
+## Step 1 — Get your API keys
 
-Clone the repo and run the install script:
+You need up to three keys. All are free.
+
+### NVIDIA (20 models, no daily limit)
+
+1. Go to **https://build.nvidia.com**
+2. Sign up for a free account
+3. Click your avatar → **API Keys** → **Generate API Key**
+4. Copy the key — it starts with `nvapi-`
+
+### Gemini (Google AI Studio, free tier)
+
+1. Go to **https://aistudio.google.com**
+2. Sign in with your Google account
+3. Click **Get API key** → **Create API key**
+4. Copy the key — it starts with `AIzaSy`
+
+### OpenAI (optional — data-sharing, 1M tokens/day on large models)
+
+1. Go to **https://platform.openai.com**
+2. Sign up or sign in
+3. Click your avatar → **API keys** → **Create new secret key**
+4. Copy the key — it starts with `sk-`
+5. Enable free data-sharing tier at **https://platform.openai.com/settings/privacy**
+   (your prompts may be used for training — do not use for sensitive data)
+
+---
+
+## Step 2 — Save the keys on your computer
+
+### Windows
+
+Open **Command Prompt** (Win + R → type `cmd` → Enter) and run:
+
+```bat
+setx NVIDIA_API_KEY "nvapi-xxxxxxxxxxxxxxxx"
+setx GEMINI_API_KEY "AIzaSyxxxxxxxxxxxxxxx"
+setx OPENAI_API_KEY "sk-xxxxxxxxxxxxxxxx"
+```
+
+Replace the placeholder values with your real keys.
+Close the Command Prompt window and open a new one — `setx` only takes effect in new windows.
+
+### Linux / Q4OS
+
+Open a terminal and add these lines to `~/.bashrc` (or `~/.profile`):
+
+```bash
+export NVIDIA_API_KEY="nvapi-xxxxxxxxxxxxxxxx"
+export GEMINI_API_KEY="AIzaSyxxxxxxxxxxxxxxx"
+export OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxx"
+```
+
+Then run `source ~/.bashrc` (or log out and back in).
+
+---
+
+## Step 3 — Install llmhub
 
 ```bash
 git clone https://github.com/peterkokosharov/llmhub.git
@@ -21,57 +77,52 @@ Files are copied to:
 - **Windows:** `%USERPROFILE%\llmhub\`
 - **Linux / Q4OS:** `~/.local/share/llmhub/`
 
-## Usage
+---
 
-**First time — store your API keys** (saved in the OS keyring, never in a file):
-
-```bash
-python3 secret.py set nvidia/personal/api_key
-python3 secret.py set gemini/personal/api_key
-python3 secret.py set openai/personal/api_key
-```
-
-**Every time you want to update opencode's model list:**
+## Step 4 — Add the models to opencode
 
 ```bash
-# 1. Close opencode desktop (or stop the CLI)
-# 2. Write providers into opencode's config:
-python3 llmhub.py
+# 1. Close opencode (desktop app or CLI)
+# 2. Run llmhub:
+python3 ~/.local/share/llmhub/llmhub.py        # Linux
+python  %USERPROFILE%\llmhub\llmhub.py          # Windows
 # 3. Start opencode
 opencode
 ```
 
 **See the models in opencode:**
-
 - Desktop: open the model listbox in the prompt area
 - CLI: type `/models`
 
+---
+
 ## What you get
 
-| Class  | Model                                | Provider |
-|--------|--------------------------------------|----------|
-| OPUS   | Nemotron Ultra 253B                  | NVIDIA   |
-| SONNET | Nemotron Super 49B, Llama 3.3 70B    | NVIDIA   |
-| HAIKU  | Gemini Flash Lite, GPT-5 Nano        | Gemini/OpenAI |
-| FABLE  | Gemini 2.5 Pro, GPT-6 Luna           | Gemini/OpenAI |
+| Class  | Model                             | Provider      |
+|--------|-----------------------------------|---------------|
+| OPUS   | Nemotron Ultra 253B               | NVIDIA        |
+| SONNET | Nemotron Super 49B, Llama 3.3 70B | NVIDIA        |
+| HAIKU  | Gemini 3.5 Flash Lite, GPT-5 Nano | Gemini/OpenAI |
+| FABLE  | Gemini 3.1 Pro, GPT-6 Luna        | Gemini/OpenAI |
 
-All free. NVIDIA requires a free account at build.nvidia.com.
-Gemini requires a free account at aistudio.google.com.
-OpenAI requires opt-in to data-sharing at platform.openai.com/settings/privacy
-(1M tokens/day on large models, 10M/day on mini — prompts may be used for training).
+---
 
 ## Update model list
 
 Edit `models.json`. Run `python3 llmhub.py --list` to see all configured models.
-Run `python3 llmhub.py` again after editing.
-
 NVIDIA models rotate — verify names at build.nvidia.com before adding.
+
+---
 
 ## Files
 
-- `llmhub.py` — writes opencode.json
+- `llmhub.py` — writes opencode's config
 - `models.json` — provider and model list
-- `secret.py` — OS keyring helper (uses the OS keyring; env vars also work)
+- `secret.py` — optional keyring helper (env vars are enough)
+- `install.sh` / `install.bat` — copy files to the standard location
+- `uninstall.sh` / `uninstall.bat` — remove them
+
+---
 
 ## License
 
