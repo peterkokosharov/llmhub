@@ -82,7 +82,10 @@ def _build_provider_entry(name: str, info: dict, key: str | None) -> dict:
     if key:
         entry["settings"]["apiKey"] = key
     for model_id, meta in info["models"].items():
-        entry["models"][model_id] = {"name": meta.get("name", model_id)}
+        model_entry: dict = {"name": meta.get("name", model_id)}
+        if "modelID" in meta:
+            model_entry["modelID"] = meta["modelID"]
+        entry["models"][model_id] = model_entry
     return entry
 
 

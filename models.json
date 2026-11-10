@@ -4,20 +4,20 @@
     "base_url": "https://integrate.api.nvidia.com/v1",
     "key_env": "NVIDIA_API_KEY",
     "models": {
-      "nvidia/nemotron-ultra-253b-instruct":   {"name": "Nemotron Ultra",   "class": "OPUS"},
-      "nvidia/nemotron-super-49b-instruct":    {"name": "Nemotron Super",   "class": "SONNET"},
-      "nvidia/llama-3.3-70b-instruct":         {"name": "Llama 3.3 70B",   "class": "SONNET"},
-      "nvidia/llama-3.1-nemotron-70b-instruct":{"name": "Nemotron 70B",    "class": "SONNET"},
-      "nvidia/llama-3.1-70b-instruct":         {"name": "Llama 3.1 70B",   "class": "HAIKU"},
-      "nvidia/mistral-nemo-12b-instruct":      {"name": "Mistral Nemo 12B","class": "HAIKU"},
-      "nvidia/llama-3.2-3b-instruct":          {"name": "Llama 3.2 3B",    "class": "HAIKU"},
-      "nvidia/phi-3-mini-128k-instruct":       {"name": "Phi-3 Mini",      "class": "HAIKU"},
-      "nvidia/deepseek-r1":                    {"name": "DeepSeek R1",     "class": "FABLE"},
-      "nvidia/qwen2.5-72b-instruct":           {"name": "Qwen2.5 72B",     "class": "SONNET"},
-      "nvidia/qwen2.5-coder-32b-instruct":     {"name": "Qwen2.5 Coder",  "class": "SONNET"},
-      "nvidia/mistral-7b-instruct-v0.3":       {"name": "Mistral 7B",      "class": "HAIKU"},
-      "nvidia/gemma-2-27b-it":                 {"name": "Gemma 2 27B",     "class": "HAIKU"},
-      "nvidia/gemma-2-9b-it":                  {"name": "Gemma 2 9B",      "class": "HAIKU"}
+      "nemotron-ultra-253b-instruct":   {"name": "Nemotron 3 Ultra",   "modelID": "nvidia/nemotron-ultra-253b-instruct",   "class": "OPUS"},
+      "nemotron-super-49b-instruct":    {"name": "Nemotron 3 Super",   "modelID": "nvidia/nemotron-super-49b-instruct",    "class": "SONNET"},
+      "llama-3.3-70b-instruct":         {"name": "Llama 3.3 70B",      "modelID": "nvidia/llama-3.3-70b-instruct",         "class": "SONNET"},
+      "llama-3.1-nemotron-70b-instruct":{"name": "Nemotron 70B",       "modelID": "nvidia/llama-3.1-nemotron-70b-instruct","class": "SONNET"},
+      "llama-3.1-70b-instruct":         {"name": "Llama 3.1 70B",      "modelID": "nvidia/llama-3.1-70b-instruct",         "class": "HAIKU"},
+      "mistral-nemo-12b-instruct":      {"name": "Mistral Nemo 12B",   "modelID": "nvidia/mistral-nemo-12b-instruct",      "class": "HAIKU"},
+      "llama-3.2-3b-instruct":          {"name": "Llama 3.2 3B",       "modelID": "nvidia/llama-3.2-3b-instruct",          "class": "HAIKU"},
+      "phi-3-mini-128k-instruct":       {"name": "Phi-3 Mini",         "modelID": "nvidia/phi-3-mini-128k-instruct",       "class": "HAIKU"},
+      "deepseek-r1":                    {"name": "DeepSeek R1",        "modelID": "nvidia/deepseek-r1",                    "class": "FABLE"},
+      "qwen2.5-72b-instruct":           {"name": "Qwen2.5 72B",        "modelID": "nvidia/qwen2.5-72b-instruct",           "class": "SONNET"},
+      "qwen2.5-coder-32b-instruct":     {"name": "Qwen2.5 Coder 32B", "modelID": "nvidia/qwen2.5-coder-32b-instruct",     "class": "SONNET"},
+      "mistral-7b-instruct-v0.3":       {"name": "Mistral 7B",         "modelID": "nvidia/mistral-7b-instruct-v0.3",       "class": "HAIKU"},
+      "gemma-2-27b-it":                 {"name": "Gemma 2 27B",        "modelID": "nvidia/gemma-2-27b-it",                 "class": "HAIKU"},
+      "gemma-2-9b-it":                  {"name": "Gemma 2 9B",         "modelID": "nvidia/gemma-2-9b-it",                  "class": "HAIKU"}
     }
   },
   "gemini": {
@@ -36,9 +36,9 @@
     "key_env": "OPENAI_API_KEY",
     "note": "data-sharing tier: 1M tokens/day large, 10M/day mini — opt in at platform.openai.com/settings/privacy",
     "models": {
-      "gpt-6-luna":    {"name": "GPT-6 Luna",    "class": "FABLE"},
-      "gpt-5-nano":    {"name": "GPT-5 Nano",    "class": "HAIKU"},
-      "gpt-4o-mini":   {"name": "GPT-4o Mini",   "class": "HAIKU"}
+      "gpt-6-luna":  {"name": "GPT-6 Luna",  "class": "FABLE"},
+      "gpt-5-nano":  {"name": "GPT-5 Nano",  "class": "HAIKU"},
+      "gpt-4o-mini": {"name": "GPT-4o Mini", "class": "HAIKU"}
     }
   }
 }
